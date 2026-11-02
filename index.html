@@ -107,7 +107,8 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
 .scene::before{content:"";position:absolute;left:0;right:0;top:var(--hz);border-top:3px solid var(--ink);z-index:1}
 .prop{position:absolute;display:none;pointer-events:none}
 .scene[data-loc="casa"] .p-casa,.scene[data-loc="quintal"] .p-quintal,.scene[data-loc="petshop"] .p-petshop,
-.scene[data-loc="praca"] .p-praca,.scene[data-loc="praia"] .p-praia{display:block}
+.scene[data-loc="praca"] .p-praca,.scene[data-loc="praia"] .p-praia,.scene[data-loc="parque"] .p-parque,
+.scene[data-loc="fazenda"] .p-fazenda,.scene[data-loc="vizinho"] .p-vizinho,.scene[data-loc="floresta"] .p-floresta,.scene[data-loc="vet"] .p-vet{display:block}
 .place-sign{position:absolute;top:8px;left:50%;transform:translateX(-50%) rotate(-2deg);background:#FFF8E6;border:3px solid var(--ink);
   border-radius:10px 6px 12px 5px;padding:0 12px;font-family:var(--display);font-size:22px;z-index:2;white-space:nowrap}
 
@@ -456,7 +457,85 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
 .angel .cloud-a{left:8%}.angel .cloud-b{right:8%}
 @keyframes floatup{to{transform:translateY(-8px)}}
 
+/* acelerar o tempo */
+.turbo{flex:none;padding:5px 10px;font-size:20px;white-space:nowrap;line-height:1.1}
+.turbo small{font-size:13px;font-family:var(--hand)}
+.turbo.on{background:#FFB547;color:#45454F;animation:pulse 1s ease-in-out infinite}
+
+/* lugares novos */
+.tile .lbl.l{left:0;transform:translate(0,2px)}
+.tile .lbl.r{left:auto;right:0;transform:translate(0,2px)}
+.scene[data-loc="parque"]{--hz:52%;background:linear-gradient(#BFE6FF 0 52%,#8ED07A 52%)}
+.lake{right:-6%;bottom:22%;width:62%}
+.pduck{font-size:28px}
+.slide{left:2%;bottom:30%;width:34%}
+.basket{left:40%;bottom:6%;font-size:30px}
+.scene[data-loc="fazenda"]{--hz:50%;background:linear-gradient(#BFE6FF 0 50%,#A5D67A 50%)}
+.barn{left:2%;bottom:46%;width:40%}
+.ffence{left:40%;right:0;top:38%;height:14%;background:repeating-linear-gradient(90deg,#9A6332 0 8px,transparent 8px 40px),linear-gradient(transparent 20%,#B98552 20% 34%,transparent 34% 60%,#B98552 60% 74%,transparent 74%)}
+.hay{left:6%;bottom:34%;width:22%}
+.mud{left:16%;bottom:4%;width:34%;height:10%;border-radius:50%;background:radial-gradient(ellipse,#6B4A2B 0 50%,#8A6A3A 70%,transparent 72%)}
+.cow{right:6%;bottom:30%;font-size:58px}
+.hen{font-size:26px}
+.scene[data-loc="floresta"]{--hz:50%;background:linear-gradient(#A8D8C0 0 50%,#5E9E4E 50%)}
+.pines{left:0;right:0;top:20%;height:30%;background:
+  linear-gradient(135deg,transparent 50%,#2F7A44 50%) 0 100%/30px 60% repeat-x,linear-gradient(225deg,transparent 50%,#2F7A44 50%) 30px 100%/30px 60% repeat-x;opacity:.75}
+.pine{z-index:1}
+.stream{left:0;right:0;bottom:30%;height:7%;background:#7EC8E8;border-top:3px solid #45454F;border-bottom:3px solid #45454F;
+  background-image:repeating-linear-gradient(90deg,transparent 0 22px,rgba(255,255,255,.7) 22px 34px)}
+.campfire{left:66%;bottom:12%;width:14%}
+.campfire .flame{transform-origin:50% 100%;transform-box:fill-box;animation:flick .4s ease-in-out infinite alternate}
+@keyframes flick{to{transform:scale(.9,1.12)}}
+.mush{font-size:24px}
+.bfly{font-size:22px;animation:drift 3s ease-in-out infinite alternate}
+.scene[data-loc="vet"]{--hz:58%;background:linear-gradient(#DFF3EE 0 58%,transparent 58%),repeating-conic-gradient(#F7F7F7 0 25%,#E3EAF0 0 50%) 0 0/40px 40px}
+.vetcross{left:8%;top:16%;width:16%}
+.chart{left:30%;top:14%;width:15%}
+.exam{left:28%;bottom:16%;width:44%}
+.scale{right:4%;bottom:6%;width:26%}
+.vetdoc{right:6%;bottom:36%;font-size:64px}
+.critter{position:absolute;font-size:28px;z-index:6;pointer-events:none;transition:transform 1.2s ease-in,opacity 1.2s ease-in}
+.scene.swim .pet{clip-path:inset(0 0 42% 0)}
+
+/* casa do vizinho e donos de corpo inteiro */
+.scene[data-loc="vizinho"]{--hz:52%;background:linear-gradient(#BFE6FF 0 52%,#8ED07A 52%)}
+.nhouse{left:-3%;bottom:40%;width:66%;z-index:1}
+.nfence{left:60%;right:0;top:40%;height:12%;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 100' preserveAspectRatio='none'><rect x='-2' y='30' width='34' height='9' fill='%23E9DCC6' stroke='%2345454F' stroke-width='2.5'/><rect x='-2' y='70' width='34' height='9' fill='%23E9DCC6' stroke='%2345454F' stroke-width='2.5'/><path d='M7 101 L7 14 L15 3 L23 14 L23 101 Z' fill='%23FFF8EE' stroke='%2345454F' stroke-width='2.5'/></svg>") 0 0/26px 100% repeat-x}
+.npath{left:22%;width:16%;bottom:0;height:40%;background:repeating-linear-gradient(0deg,#D9C9A8 0 18px,#C9B48A 18px 21px);clip-path:polygon(30% 0,70% 0,100% 100%,0 100%)}
+.mailbox{left:62%;bottom:40%;width:8%}
+.npc .person{display:block;width:clamp(70px,25vw,118px);height:auto;filter:drop-shadow(0 3px 0 rgba(0,0,0,.12));animation:npcIdle 2.8s ease-in-out infinite;transform-origin:50% 100%}
+.npc .arm-r{transform-origin:43px 52px;transform-box:view-box}
+.npc.talk .arm-r{animation:wave .4s ease-in-out 4 alternate}
+@keyframes wave{from{transform:rotate(0deg)}to{transform:rotate(-140deg)}}
+.npc-n small{font-size:11px;letter-spacing:-1px}
+.npc-head .npc-big .person{width:60px;height:auto}
+
+/* donos da vizinhança */
+.npc{position:absolute;transform:translateX(-50%);background:none;border:0;padding:0;z-index:4;display:flex;flex-direction:column;align-items:center}
+.npc-e{font-size:56px;line-height:1;filter:drop-shadow(0 3px 0 rgba(0,0,0,.15));animation:npcIdle 2.6s ease-in-out infinite}
+@keyframes npcIdle{50%{transform:translateY(-3px) rotate(-2deg)}}
+.npc-n{font-size:13px;text-align:center;line-height:1.05;background:#FFF8E6;color:#45454F;border:2px solid #45454F;border-radius:10px;padding:0 6px;white-space:nowrap;margin-top:-4px}
+.npc-say{position:absolute;bottom:100%;right:0;margin-bottom:4px;background:#fff;color:#45454F;border:3px solid #45454F;border-radius:16px 12px 18px 10px;
+  padding:3px 10px;font-size:16px;width:max-content;max-width:210px;line-height:1.15;opacity:0;transition:opacity .3s;pointer-events:none;z-index:9;text-align:left}
+.npc-say.show{opacity:1}
+.npcdog{cursor:pointer;pointer-events:auto;z-index:3}
+.npc-head{display:flex;justify-content:center;align-items:flex-end;gap:6px}
+.npc-head .npc-big{font-size:64px;line-height:1}
+.npc-head img{max-height:90px}
+
+/* brincadeiras */
+.play-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.play-grid .btn{display:flex;flex-direction:column;align-items:center;padding:10px 4px;font-size:18px;line-height:1.1}
+.play-grid .btn b{font-size:34px;font-weight:normal}
+.play-grid .btn:last-child:nth-child(odd){grid-column:1 / -1}
+.bubble2{position:absolute;width:9%;aspect-ratio:1;border-radius:50%;z-index:6;pointer-events:none;
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.95) 0 12%,rgba(190,230,255,.35) 13% 60%,rgba(255,170,230,.45) 75%,rgba(255,255,255,.2) 100%);
+  border:2px solid rgba(255,255,255,.9);animation:bfloat 2.4s ease-in-out infinite alternate}
+@keyframes bfloat{to{transform:translate(10px,-14px)}}
+.bubble2.pop{animation:none;transform:scale(1.6);opacity:0;transition:transform .2s,opacity .2s}
+
 /* passeador */
+.ver{text-align:center;font-size:12px;color:var(--pencil-soft);margin:4px 0 0}
 .jobbtn{flex:none;margin-top:10px;padding:10px;font-size:19px;width:100%}
 .wpick{flex:1;min-height:0;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 2px 4px;align-content:start}
 .client{display:flex;flex-direction:column;align-items:center;padding:8px 6px;gap:2px;font-size:16px;line-height:1.1}
@@ -529,6 +608,7 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
     <p>Toque num cachorro para escolher</p>
     <div class="ground" id="ground1" role="group" aria-label="Cachorros grandes"></div>
     <div class="ground" id="ground2" role="group" aria-label="Cachorros pequenos"></div>
+    <p class="ver">versão 2.0 (02/11/2026)</p>
   </div>
 </section>
 
@@ -585,8 +665,8 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
         <path d="M44 40 q6 -6 12 0 M98 46 q6 -6 12 0" fill="none" stroke="#F2B5A6" stroke-width="3"/></g></svg></div>
       <div class="prop bedfront"><svg viewBox="0 0 160 70"><path d="M4 38 A76 27 0 0 0 156 38 L140 42 A60 17 0 0 1 20 42 Z" fill="#E8706A" stroke="#45454F" stroke-width="3" stroke-linejoin="round"/></svg></div>
       <!-- quintal / jardim -->
-      <div class="prop p-quintal p-praca p-praia cloud" style="left:6%;top:5%"><svg viewBox="0 0 100 50"><path d="M20 42 Q4 42 8 30 Q10 18 24 22 Q28 6 46 10 Q58 0 68 14 Q84 10 86 26 Q98 28 92 42 Z" fill="#fff" stroke="#45454F" stroke-width="2.5"/></svg></div>
-      <div class="prop p-quintal p-praca cloud c2" style="left:52%;top:12%"><svg viewBox="0 0 100 50"><path d="M20 42 Q4 42 8 30 Q10 18 24 22 Q28 6 46 10 Q58 0 68 14 Q84 10 86 26 Q98 28 92 42 Z" fill="#fff" stroke="#45454F" stroke-width="2.5"/></svg></div>
+      <div class="prop p-quintal p-praca p-praia p-parque p-fazenda p-vizinho cloud" style="left:6%;top:5%"><svg viewBox="0 0 100 50"><path d="M20 42 Q4 42 8 30 Q10 18 24 22 Q28 6 46 10 Q58 0 68 14 Q84 10 86 26 Q98 28 92 42 Z" fill="#fff" stroke="#45454F" stroke-width="2.5"/></svg></div>
+      <div class="prop p-quintal p-praca p-parque p-fazenda cloud c2" style="left:52%;top:12%"><svg viewBox="0 0 100 50"><path d="M20 42 Q4 42 8 30 Q10 18 24 22 Q28 6 46 10 Q58 0 68 14 Q84 10 86 26 Q98 28 92 42 Z" fill="#fff" stroke="#45454F" stroke-width="2.5"/></svg></div>
       <div class="prop p-quintal p-praia sun"><svg viewBox="0 0 60 60"><g stroke="#45454F" stroke-width="2.5"><g stroke="#F2A93B" stroke-width="4" stroke-linecap="round">
         <line x1="30" y1="2" x2="30" y2="10"/><line x1="30" y1="50" x2="30" y2="58"/><line x1="2" y1="30" x2="10" y2="30"/><line x1="50" y1="30" x2="58" y2="30"/>
         <line x1="10" y1="10" x2="16" y2="16"/><line x1="44" y1="44" x2="50" y2="50"/><line x1="10" y1="50" x2="16" y2="44"/><line x1="44" y1="16" x2="50" y2="10"/></g>
@@ -609,6 +689,9 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
         <path fill-rule="evenodd" fill="#E3A85F" d="M14 50 L106 50 L106 106 L14 106 Z M44 106 L44 78 Q60 60 76 78 L76 106 Z"/>
         <g stroke="#C98A45" stroke-width="2"><line x1="29" y1="54" x2="29" y2="104"/><line x1="91" y1="54" x2="91" y2="104"/><line x1="16" y1="72" x2="40" y2="72"/><line x1="80" y1="72" x2="104" y2="72"/><line x1="16" y1="90" x2="42" y2="90"/><line x1="78" y1="90" x2="104" y2="90"/></g>
         <path d="M44 106 L44 78 Q60 60 76 78 L76 106" fill="none" stroke="#8A5A2B" stroke-width="5"/>
+        <path d="M14 52 L60 14 L106 52 Z" fill="#E3A85F" stroke="none"/>
+        <g stroke="#C98A45" stroke-width="2"><line x1="40" y1="34" x2="40" y2="50"/><line x1="80" y1="34" x2="80" y2="50"/></g>
+        <circle cx="60" cy="36" r="6.5" fill="#8A5A2B" stroke-width="2.5"/><circle cx="60" cy="36" r="3" fill="#5A3B1E" stroke="none"/>
         <path d="M2 56 L60 6 L118 56 L106 60 L60 22 L14 60 Z" fill="#D8584A"/>
         <path d="M20 46 L60 14 L100 46" fill="none" stroke="#B8443A" stroke-width="2"/><path d="M30 38 L60 14 L90 38" fill="none" stroke="#B8443A" stroke-width="2"/>
         <rect x="42" y="50" width="36" height="13" rx="3" fill="#FFF8E6" stroke-width="2"/>
@@ -645,7 +728,7 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
         <rect x="70" y="0" width="30" height="12" rx="2" fill="#C7CED6"/><text x="60" y="50" font-size="16" text-anchor="middle" stroke="none">🐾</text></g></svg></div>
       <!-- praça -->
       <div class="prop p-praca place-sign">Praça</div>
-      <div class="prop p-praca treerow"></div>
+      <div class="prop p-praca p-parque treerow"></div>
       <div class="prop p-praca cart"><div class="umb"></div><div class="pole"></div><div class="box">Lanches</div><div class="wheel" style="left:10%"></div><div class="wheel" style="right:10%"></div></div>
       <div class="prop p-praca lamppost"></div>
       <div class="prop p-praca bench2"><svg viewBox="0 0 120 60"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round"><rect x="6" y="4" width="108" height="12" rx="3" fill="#B98552"/><rect x="6" y="20" width="108" height="12" rx="3" fill="#B98552"/>
@@ -656,6 +739,60 @@ button:focus-visible,input:focus-visible{outline:3px dashed var(--pencil);outlin
         <ellipse cx="50" cy="65" rx="38" ry="8" fill="#8FD3F5"/>
         <rect x="44" y="30" width="12" height="34" fill="#C7CED6"/><ellipse cx="50" cy="32" rx="18" ry="5" fill="#B0B8C2"/></g></svg></div>
       <span class="prop p-praca bird" style="left:70%">🐦</span><span class="prop p-praca bird" style="left:82%">🐦</span>
+      <!-- parque -->
+      <div class="prop p-parque place-sign">Parque</div>
+      <div class="prop p-parque lake"><svg viewBox="0 0 200 70"><ellipse cx="100" cy="35" rx="96" ry="30" fill="#7EC8E8" stroke="#45454F" stroke-width="3"/>
+        <ellipse cx="100" cy="38" rx="80" ry="20" fill="#9ED8F2"/><path d="M40 34 q8 -5 16 0 M120 42 q8 -5 16 0 M90 28 q8 -5 16 0" fill="none" stroke="#fff" stroke-width="2.5"/></svg></div>
+      <span class="prop p-parque pduck" style="right:24%;bottom:34%">🦆</span><span class="prop p-parque pduck" style="right:12%;bottom:30%">🦆</span>
+      <div class="prop p-parque slide"><svg viewBox="0 0 120 110"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round">
+        <rect x="14" y="20" width="6" height="88" fill="#4FA3E0"/><rect x="44" y="20" width="6" height="88" fill="#4FA3E0"/>
+        <rect x="10" y="16" width="44" height="8" rx="2" fill="#FFD84A"/>
+        <line x1="17" y1="44" x2="47" y2="44" stroke-width="4"/><line x1="17" y1="66" x2="47" y2="66" stroke-width="4"/><line x1="17" y1="88" x2="47" y2="88" stroke-width="4"/>
+        <path d="M50 22 Q70 30 88 70 Q96 92 116 100 L116 108 Q90 100 80 76 Q66 40 50 32 Z" fill="#E5574B"/></g></svg></div>
+      <div class="prop p-parque basket">🧺</div>
+      <!-- fazenda -->
+      <div class="prop p-fazenda place-sign">Fazenda</div>
+      <div class="prop p-fazenda barn"><svg viewBox="0 0 120 110"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round">
+        <path d="M10 50 L60 14 L110 50 L110 106 L10 106 Z" fill="#D8584A"/>
+        <path d="M4 52 L60 8 L116 52" fill="none" stroke-width="6" stroke="#F4F4F4"/><path d="M4 52 L60 8 L116 52" fill="none"/>
+        <rect x="40" y="62" width="40" height="44" fill="#B8443A"/><path d="M40 62 L80 106 M80 62 L40 106" stroke="#F4F4F4" stroke-width="4"/>
+        <rect x="40" y="62" width="40" height="44" fill="none"/>
+        <rect x="50" y="30" width="20" height="16" fill="#FFF8E6"/></g></svg></div>
+      <div class="prop p-fazenda ffence"></div>
+      <div class="prop p-fazenda hay"><svg viewBox="0 0 80 50"><g stroke="#45454F" stroke-width="3"><rect x="4" y="8" width="72" height="38" rx="8" fill="#F2C94C"/>
+        <path d="M14 12 L14 42 M40 10 L40 44 M66 12 L66 42" stroke="#C9A22E"/></g></svg></div>
+      <div class="prop p-fazenda mud"></div>
+      <span class="prop p-fazenda cow">🐄</span>
+      <span class="prop p-fazenda hen" style="left:52%;bottom:16%">🐔</span><span class="prop p-fazenda hen" style="left:62%;bottom:10%">🐓</span><span class="prop p-fazenda hen" style="left:70%;bottom:18%">🐔</span>
+      <!-- floresta -->
+      <div class="prop p-floresta place-sign">Floresta</div>
+      <div class="prop p-floresta pines"></div>
+      <div class="prop p-floresta pine" style="left:-4%;bottom:34%;width:30%"><svg viewBox="0 0 80 120"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round"><rect x="34" y="96" width="12" height="22" fill="#8A5A2B"/>
+        <path d="M40 4 L64 44 L52 44 L74 76 L58 76 L78 100 L2 100 L22 76 L6 76 L28 44 L16 44 Z" fill="#2F8F4A"/></g></svg></div>
+      <div class="prop p-floresta pine" style="right:-2%;bottom:36%;width:26%"><svg viewBox="0 0 80 120"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round"><rect x="34" y="96" width="12" height="22" fill="#8A5A2B"/>
+        <path d="M40 4 L64 44 L52 44 L74 76 L58 76 L78 100 L2 100 L22 76 L6 76 L28 44 L16 44 Z" fill="#3BA05A"/></g></svg></div>
+      <div class="prop p-floresta stream"></div>
+      <div class="prop p-floresta campfire"><svg viewBox="0 0 60 50"><g stroke="#45454F" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M8 44 L52 34 M8 34 L52 44" stroke="#8A5A2B" stroke-width="7"/>
+        <path class="flame" d="M30 6 Q42 20 38 32 Q34 40 30 40 Q22 40 22 30 Q22 22 30 6 Z" fill="#F2A93B"/><path d="M30 20 Q35 28 33 34 Q30 38 28 34 Q26 28 30 20 Z" fill="#FFE45C" stroke="none"/></g></svg></div>
+      <span class="prop p-floresta mush" style="left:30%;bottom:6%">🍄</span><span class="prop p-floresta mush" style="left:66%;bottom:4%">🍄</span>
+      <span class="prop p-floresta bfly" style="left:40%;top:30%">🦋</span>
+      <!-- veterinário -->
+      <div class="prop p-vet place-sign">Veterinário</div>
+      <div class="prop p-vet vetcross"><svg viewBox="0 0 60 60"><g stroke="#45454F" stroke-width="3"><rect x="2" y="2" width="56" height="56" rx="10" fill="#fff"/>
+        <path d="M22 10 h16 v12 h12 v16 h-12 v12 h-16 v-12 h-12 v-16 h12 Z" fill="#E5574B"/></g></svg></div>
+      <div class="prop p-vet chart"><svg viewBox="0 0 70 90"><g stroke="#45454F" stroke-width="3"><rect x="4" y="4" width="62" height="82" rx="4" fill="#FFF8E6"/>
+        <line x1="14" y1="24" x2="56" y2="24" stroke="#BFE0F4"/><line x1="14" y1="38" x2="56" y2="38" stroke="#BFE0F4"/><line x1="14" y1="52" x2="44" y2="52" stroke="#BFE0F4"/></g>
+        <text x="35" y="78" font-size="16" text-anchor="middle">🐾</text></svg></div>
+      <div class="prop p-vet exam"><svg viewBox="0 0 140 70"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round"><rect x="4" y="8" width="132" height="16" rx="5" fill="#C7CED6"/>
+        <rect x="18" y="24" width="10" height="44" fill="#9AA4AE"/><rect x="112" y="24" width="10" height="44" fill="#9AA4AE"/></g></svg></div>
+      <div class="prop p-vet scale"><svg viewBox="0 0 80 30"><g stroke="#45454F" stroke-width="3"><rect x="4" y="8" width="72" height="18" rx="5" fill="#E9EEF2"/><rect x="28" y="12" width="24" height="9" rx="2" fill="#7CC56E"/></g></svg></div>
+      <span class="prop p-vet vetdoc">👩‍⚕️</span>
+      <!-- casa do vizinho -->
+      <div class="prop p-vizinho nhouse" id="nhouse"></div>
+      <div class="prop p-vizinho nfence"></div>
+      <div class="prop p-vizinho npath"></div>
+      <div class="prop p-vizinho mailbox"><svg viewBox="0 0 40 70"><g stroke="#45454F" stroke-width="3"><rect x="17" y="30" width="6" height="38" fill="#8A5A2B"/><rect x="4" y="10" width="32" height="22" rx="10" fill="#4FA3E0"/><rect x="30" y="4" width="4" height="14" fill="#E5574B"/></g></svg></div>
       <!-- praia -->
       <div class="prop p-praia place-sign">Praia</div>
       <div class="prop p-praia wave"></div>
@@ -722,10 +859,10 @@ const DOGS = {
   caramelo:{nome:"Caramelo",face:"right",bow:[78,4]}, salsicha:{nome:"Salsicha",face:"left",bow:[22,4]},
   pug:{nome:"Pug",face:"right",bow:[78,3]}, pinscher:{nome:"Pinscher",face:"right",bow:[70,4]}
 };
-const SIZE = {pitbull:{s:.95,g:1}, dalmata:{s:.95,g:.95}, caramelo:{s:.85,g:.92}, salsicha:{s:.54,g:.85}, pug:{s:.6,g:.68}, pinscher:{s:.46,g:.5}};
+const SIZE = {pitbull:{s:.95,g:1}, dalmata:{s:.76,g:.76}, caramelo:{s:.85,g:.92}, salsicha:{s:.54,g:.85}, pug:{s:.6,g:.68}, pinscher:{s:.46,g:.5}};
 const ORDER = ["pitbull","dalmata","caramelo","salsicha","pug","pinscher"];
 const KEY = "meu-cachorrinho-v1";
-const PLACES_IN = ["petshop","praca","praia"];
+const PLACES_IN = ["petshop","praca","praia","parque","fazenda","floresta","vet","vizinho"];
 const $ = id => document.getElementById(id);
 
 let S = {pet:null};
@@ -880,7 +1017,7 @@ function askName(dog){
 /* ---------- jogo ---------- */
 const pet = $("pet"), scene = $("scene");
 // profundidade do chão de cada lugar: [frente, fundo] em % a partir de baixo
-const FLOOR = {casa:[4,19], quintal:[4,24], banheiro:[4,20], petshop:[4,19], praca:[4,22], praia:[4,26]};
+const FLOOR = {casa:[4,19], quintal:[4,24], banheiro:[4,20], petshop:[4,19], praca:[4,22], praia:[4,26], vizinho:[4,22], parque:[4,22], fazenda:[4,24], floresta:[4,22], vet:[4,19]};
 const WANDER = {casa:[18,70], quintal:[20,64], banheiro:[64,84]};
 const SLEEPSPOT = {casa:{x:75, z:.36}, quintal:{x:74, z:.8}};
 const PAD = {x:79, z:.05}, TUB = {x:31, z:.42};
@@ -905,10 +1042,11 @@ function checkAngels(){
 }
 function showAngel(list, i){
   const d = list[i]; if (!d) return;
+  const why = "A barriguinha ficou vazia por muito tempo";
   const o = d.gen === "f" ? "a" : "o", ele = d.gen === "f" ? "dela" : "dele";
   modal(`<div class="angel"><span class="cloud-a">☁️</span><span class="halo"></span><img src="${IMG[d.dog]}" alt=""><span class="cloud-b">☁️</span></div>
     <h3>${esc(d.name)} virou um anjinho 😇</h3>
-    <p>A barriguinha ficou vazia por muito tempo e ${o} ${esc(d.name)} foi morar nas nuvens. A conta ${ele} foi apagada.</p>
+    <p>${why} e ${o} ${esc(d.name)} foi morar nas nuvens. A conta ${ele} foi apagada.</p>
     <p class="hint-msg">Lembre de dar comida para os seus cachorros todos os dias! 🍖</p>
     <div class="row"><button class="btn go" data-k="ok">Tchau, ${esc(d.name)} 💛</button></div>`, () => showAngel(list, i + 1));
 }
@@ -940,21 +1078,24 @@ function catchUp(){
 }
 // valores por minuto: cada barrinha leva 4 dias (5760 minutos) para ir de cheia a vazia
 const RATE = 100 / 5760;
-function decay(m, where = view){
+function decay(m, where = view, needM = m){
   const p = S.pet;
   let fome = -RATE, alegria = -RATE, energia = -RATE, limpeza = -RATE;
-  if (p.sleeping){ fome = -RATE/2; alegria = -RATE/4; energia = 3.2; }
+  if (p.sleeping){ fome = -RATE/2; alegria = -RATE/4; energia = 200; }
   if (where === "praca"){ energia = -3; }                       // energia desce mais rápido
   if (where === "praia"){ limpeza = -6; energia = 4; alegria = 1; } // suja rápido, descansa e se diverte
-  if (where === "praia" || where === "petshop" || where === "mapa") fome = -4;   // passeando fora da praça, a barriga esvazia rápido
+  if (where === "fazenda"){ limpeza = -3; }                     // fazenda suja
+  if (where === "floresta"){ energia = -2.5; }                  // trilha cansa
+  if (where === "parque"){ alegria = .8; }                      // parque alegra
+  if ((PLACES_IN.includes(where) && where !== "praca") || where === "mapa") fome = -4;   // passeando fora da praça, a barriga esvazia rápido
   if (p.fome < 20) alegria -= RATE/2;
   alegria -= p.poops.length * RATE/4; limpeza -= p.poops.length * RATE/3;
   p.fome = clamp(p.fome + fome*m); p.alegria = clamp(p.alegria + alegria*m);
   p.energia = clamp(p.energia + energia*m); p.limpeza = clamp(p.limpeza + limpeza*m);
   if (p.sleeping && p.energia >= 100){ p.sleeping = false; p.wokeUp = true; }
   // vontade de fazer cocô e xixi (sobe com o tempo)
-  p.poo = Math.min(100, (p.poo || 0) + 100 * m / (p.pooDur || 5));
-  p.pee = Math.min(100, (p.pee || 0) + 100 * m / (p.peeDur || 3.5));
+  p.poo = Math.min(100, (p.poo || 0) + 100 * needM / (p.pooDur || 5));
+  p.pee = Math.min(100, (p.pee || 0) + 100 * needM / (p.peeDur || 3.5));
 }
 function need(){
   const p = S.pet;
@@ -1198,9 +1339,108 @@ function doPoop(){
     say("Fiz cocô! Clica nele para limpar 😅", 2800); save(); render();
   }, 1600);
 }
+/* ---------- brincadeiras do jardim ---------- */
+const GAMES = [
+  {e:"⚽", t:"Bola", fn:() => playBall()},
+  {e:"🪢", t:"Cabo de guerra", fn:() => playTug()},
+  {e:"🫧", t:"Bolhas de sabão", fn:() => playBubbles()},
+  {e:"🦴", t:"Achar o ossinho", fn:() => playBone()},
+  {e:"🌀", t:"Truques", fn:() => playTrick()}
+];
+function tired(){ if (S.pet.energia < 15){ say(G("Estou cansado demais… 😴","Estou cansada demais… 😴")); return true; } return false; }
 function doPlay(){
-  if (guard()) return;
-  if (S.pet.energia < 15){ say(G("Estou cansado demais… 😴","Estou cansada demais… 😴")); return; }
+  if (guard() || tired()) return;
+  modal(`<h3>Do que vamos brincar?</h3>
+    <div class="play-grid">${GAMES.map((g, i) => `<button class="btn" data-k="${i}"><b>${g.e}</b>${g.t}</button>`).join("")}</div>
+    <div class="row"><button class="btn" data-k="no">Voltar</button></div>`,
+    k => { if (k !== "no") GAMES[+k].fn(); });
+}
+// anda de lado sem virar (para puxar a corda de ré)
+function shiftX(dx, ms){ petX = Math.max(14, Math.min(86, petX + dx)); pet.style.transition = `left ${ms}ms ease-in-out, bottom ${ms}ms, transform ${ms}ms`; placePet(); }
+function playTug(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 5600;
+  walkTo(52, 700, .3);
+  setTimeout(() => {
+    RIG.setCarry(petActor, "🪢");
+    say("Grrr! Puxa! 💪", 1800);
+    let k = 0;
+    const iv = setInterval(() => {
+      k++;
+      shiftX(k % 2 ? -facing * 7 : facing * 4, 300);
+      anim("shake", 500);
+      if (k % 2) fx("💪", petX + facing * 10, 38);
+      if (k >= 7){ clearInterval(iv);
+        RIG.setCarry(petActor, null);
+        const won = Math.random() < .5;
+        anim("jump", 900); fx(won ? "🏆" : "⭐", petX, 30);
+        say(won ? "Ganhei! Sou mais forte! 🏆" : "Você ganhou! Joga de novo? 🪢", 2400);
+        apply({alegria:30, energia:-12, fome:-3});
+      }
+    }, 450);
+  }, 750);
+}
+function playBubbles(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 7200;
+  say("Bolhas! Vou pegar todas! 🫧", 1600);
+  const bs = [];
+  for (let i=0;i<5;i++){
+    const b = document.createElement("div"); b.className = "bubble2";
+    const x = rnd(18, 82), y = rnd(30, 48);
+    b.style.left = x + "%"; b.style.top = y + "%"; b.style.animationDelay = (-Math.random()*2) + "s";
+    scene.appendChild(b); bs.push({b, x});
+  }
+  bs.forEach((o, i) => {
+    setTimeout(() => { walkTo(o.x, 650, rnd(.1, .5)); }, 600 + i*1200);
+    setTimeout(() => anim("jump", 900), 1150 + i*1200);
+    setTimeout(() => { o.b.classList.add("pop"); fx("✨", o.x, 38); setTimeout(() => o.b.remove(), 250); }, 1450 + i*1200);
+  });
+  setTimeout(() => { apply({alegria:30, energia:-10}); say("Peguei todas! 🫧✨", 2200); }, 6800);
+}
+function playBone(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 8600;
+  const spots = [{x:14, z:.85, n:"atrás da árvore"}, {x:36, z:.95, n:"no arbusto"}, {x:56, z:.6, n:"perto da casinha"}, {x:24, z:.05, n:"nas flores"}, {x:48, z:.1, n:"na grama"}];
+  const order = spots.sort(() => Math.random() - .5).slice(0, 3);
+  say("Esconde o ossinho que eu acho! 👀", 1800);
+  order.forEach((s, i) => {
+    const t0 = 1600 + i*2100;
+    setTimeout(() => walkTo(s.x, 900, s.z), t0);
+    setTimeout(() => { anim("eat", 1000); fx("👃", s.x, 40); }, t0 + 950);
+    if (i < order.length - 1) setTimeout(() => say("Hmm… aqui não ❓", 900), t0 + 1500);
+  });
+  const last = order[order.length - 1];
+  setTimeout(() => {
+    const it = document.createElement("div"); it.className = "found"; it.textContent = "🦴";
+    it.style.left = last.x + "%"; it.style.bottom = feetBottom() + "%"; scene.appendChild(it); setTimeout(() => it.remove(), 2400);
+    anim("jump", 900);
+    say(`Achei ${last.n}! 🦴`, 2200);
+  }, 1600 + 2*2100 + 1300);
+  setTimeout(() => { RIG.setCarry(petActor, "🦴"); }, 1600 + 2*2100 + 2200);
+  setTimeout(() => { RIG.setCarry(petActor, null); apply({alegria:30, energia:-8, fome:3}); }, 1600 + 2*2100 + 4200);
+}
+function playTrick(){
+  if (guard() || tired()) return;
+  const tricks = ["pata", "girar", "pular"];
+  const tk = tricks[Math.floor(Math.random() * tricks.length)];
+  busy = Date.now() + 3600;
+  walkTo(48, 700, .15);
+  if (tk === "pata"){
+    setTimeout(() => { pet.classList.add("paw"); say("Toca aqui! 🐾", 2000); fx("🐾", petX + facing*12, 45); }, 800);
+    setTimeout(() => pet.classList.remove("paw"), 2700);
+  } else if (tk === "girar"){
+    say("Olha eu girando! 🌀", 2200);
+    [800, 1250, 1700, 2150].forEach(ms => setTimeout(() => { facing = -facing; placePet(); }, ms));
+    setTimeout(() => fx("🌀", petX, 36), 1200);
+  } else {
+    say("Pulo bem alto! ⭐", 2200);
+    [800, 1750].forEach(ms => setTimeout(() => { anim("jump", 900); fx("⭐", petX + rnd(-8, 8), 30); }, ms));
+  }
+  setTimeout(() => { apply({alegria:25, energia:-6}); fx("❤️", petX, 34); }, 3200);
+}
+function playBall(){
+  if (guard() || tired()) return;
   busy = Date.now() + 3200;
   const ball = document.createElement("div"); ball.className = "ball"; ball.textContent = "⚽";
   const to = petX > 50 ? 20 + Math.random()*20 : 60 + Math.random()*20;
@@ -1447,6 +1687,285 @@ function doSea(){
   setTimeout(() => { apply({alegria:30, limpeza:5, energia:-6}); say("Splash! A água tá geladinha! 🌊", 2400); }, 5800);
 }
 
+/* ---------- lugares novos ---------- */
+// bichinhos que fogem quando o cachorro chega perto
+function critters(emoji, xs, yb, flee){
+  const els = xs.map(x => { const c = document.createElement("div"); c.className = "critter"; c.textContent = emoji;
+    c.style.left = x + "%"; c.style.bottom = yb + "%"; scene.appendChild(c); return c; });
+  setTimeout(() => els.forEach((c, i) => { c.style.transform = `translate(${flee[0] * (60 + i*30)}px, ${flee[1] * (40 + i*25)}px)`; c.style.opacity = 0; }), 1300);
+  setTimeout(() => els.forEach(c => c.remove()), 2600);
+}
+function chase(o){
+  return () => {
+    if (guard() || tired()) return;
+    if (o.cost && !pay(o.cost)){ say(`Preciso de R$ ${o.cost} 💰`); return; }
+    busy = Date.now() + 3600;
+    const tx = rnd(o.x[0], o.x[1]);
+    if (o.critter) critters(o.critter, [tx - 6, tx + 4, tx + 12], o.yb || 12, o.flee || [1, -1]);
+    walkTo(tx, 1100, o.z != null ? o.z : .2);
+    setTimeout(() => { anim("jump", 900); burst(o.fx, o.n || 5); }, 1150);
+    if (o.again) setTimeout(() => { walkTo(tx + o.again, 700, .2); anim("jump", 900); }, 2200);
+    setTimeout(() => { apply(o.d); say(typeof o.say === "function" ? o.say() : o.say, 2600); }, 3300);
+  };
+}
+function doSlide(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 4200;
+  walkTo(14, 1000, .6);
+  say("Lá vou eu! 🛝", 1200);
+  setTimeout(() => anim("jump", 900), 1000);
+  setTimeout(() => { pet.style.transition = "left 900ms ease-in, bottom 900ms ease-in, transform 900ms"; petX = 42; petZ = 0; placePet(); fx("💨", 30, 50); say("Uiiiii! 😆", 1400); }, 1400);
+  setTimeout(() => { anim("boing", 500); for (let i=0;i<5;i++) setTimeout(() => fx(["⭐","✨"][i%2], petX + rnd(-10, 10), rnd(30, 45)), i*90); }, 2350);
+  setTimeout(() => { apply({alegria:35, energia:-10}); say("De novo! De novo! 🛝", 2200); }, 3600);
+}
+function doSwim(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 5200;
+  walkTo(72, 1100, .95);
+  say("Tchibum! 🏊", 1400);
+  setTimeout(() => { scene.classList.add("swim"); for (let i=0;i<6;i++) setTimeout(() => fx("💦", petX + rnd(-12, 12), rnd(38, 50), "fx top"), i*100); }, 1100);
+  setTimeout(() => shiftX(-12, 1200), 1500);
+  setTimeout(() => shiftX(12, 1200), 2800);
+  setTimeout(() => { scene.classList.remove("swim"); walkTo(55, 700, .3); }, 4100);
+  setTimeout(() => { anim("shake", 1300); apply({alegria:25, limpeza:5, energia:-8}); say("Nadei com os patos! 🦆", 2200); }, 4900);
+}
+function doMud(){
+  if (guard()) return;
+  busy = Date.now() + 4800;
+  walkTo(30, 1000, .1);
+  say("Lama! Que delícia! 🤩", 1400);
+  setTimeout(() => { pet.classList.add("resting"); for (let i=0;i<8;i++) setTimeout(() => fx("🟤", petX + rnd(-14, 14), rnd(42, 58), "fx top"), i*140); }, 1050);
+  setTimeout(() => { pet.classList.remove("resting"); anim("shake", 1300); }, 2900);
+  setTimeout(() => { apply({alegria:40, limpeza:-45}); say(G("Fiquei todo sujinho! 🐷","Fiquei toda sujinha! 🐷"), 2400); }, 4400);
+}
+function doTrail(){
+  if (guard() || tired()) return;
+  busy = Date.now() + 6200;
+  const items = [["🌰","uma pinha"],["🍄","um cogumelo"],["🪶","uma pena"],["🍁","uma folha vermelha"],["🪵","um graveto perfeito"],["🐿️","um esquilo"],["🐌","um caracol"],["🌸","uma flor"]];
+  const it = items[Math.floor(Math.random()*items.length)];
+  say("Tem um cheiro aqui… 👃", 1600);
+  [0, 1, 2].forEach(i => {
+    setTimeout(() => { walkTo(25 + i*22, 1000, rnd(.1, .5)); fx("🐾", 22 + i*22, 78); }, 400 + i*1400);
+    setTimeout(() => anim("eat", 900), 1300 + i*1400);
+  });
+  setTimeout(() => {
+    const f = document.createElement("div"); f.className = "found"; f.textContent = it[0];
+    f.style.left = (petX + facing*12) + "%"; f.style.bottom = feetBottom() + "%"; scene.appendChild(f); setTimeout(() => f.remove(), 2400);
+    anim("jump", 900); say(`Achei ${it[1]}! ${it[0]}`, 2400);
+  }, 4800);
+  setTimeout(() => apply({alegria:25, energia:-8}), 5800);
+}
+function doCamp(){
+  if (guard()) return;
+  busy = Date.now() + 5000;
+  walkTo(58, 1000, .2);
+  setTimeout(() => { pet.classList.add("resting"); say("Quentinho perto da fogueira… 🔥", 2600); }, 1050);
+  for (let i=0;i<3;i++) setTimeout(() => fx("💤", petX + 6, 42), 1800 + i*900);
+  setTimeout(() => { pet.classList.remove("resting"); apply({energia:40, alegria:10}); }, 4600);
+}
+function doCheckup(){
+  if (guard()) return;
+  busy = Date.now() + 3600;
+  walkTo(50, 900, .5);
+  setTimeout(() => { fx("🩺", petX, 38); anim("boing", 500); }, 1000);
+  setTimeout(() => {
+    const p = S.pet, ok = v => v > 60 ? "ótima" : v > 30 ? "boa" : "baixa";
+    modal(`<h3>Consulta 🩺</h3><p>A veterinária examinou ${G("o","a")} ${esc(p.name)}:</p>
+      <p>🍖 Barriga ${ok(p.fome)}<br>😊 Alegria ${ok(p.alegria)}<br>⚡ Energia ${ok(p.energia)}<br>🫧 Higiene ${ok(p.limpeza)}</p>
+      <p class="hint-msg">${p.fome < 40 ? "Dê mais comida para ele!" : "Está tudo certo, continue cuidando bem!"}</p>
+      <div class="row"><button class="btn go" data-k="ok">Obrigado, doutora!</button></div>`);
+    apply({alegria:5});
+  }, 1900);
+}
+function doVaccine(){
+  if (guard()) return;
+  busy = Date.now() + 3800;
+  walkTo(50, 900, .5);
+  setTimeout(() => { fx("💉", petX + facing*8, 40); say("Ai! 😣", 1000); anim("shake", 700); }, 1000);
+  setTimeout(() => { fx("⭐", petX, 30); anim("jump", 900); say(G("Fui muito corajoso! Ganhei um adesivo ⭐","Fui muito corajosa! Ganhei um adesivo ⭐"), 2600); apply({alegria:12}); }, 2300);
+}
+function doWeigh(){
+  if (guard()) return;
+  busy = Date.now() + 3000;
+  walkTo(80, 1000, .1);
+  const KG = {pitbull:[22,30], dalmata:[20,28], caramelo:[14,22], salsicha:[7,11], pug:[7,10], pinscher:[3,5]}[S.pet.dog];
+  const kg = (KG[0] + Math.random()*(KG[1]-KG[0])).toFixed(1).replace(".", ",");
+  setTimeout(() => { anim("boing", 500); say(`Eu peso ${kg} kg! ⚖️`, 2600); fx("⚖️", petX, 36); apply({alegria:5}); }, 1200);
+}
+
+/* ---------- donos e cachorros da vizinhança ---------- */
+const NPCS = [
+  {dog:"caramelo", nome:"Mel", dono:"dona Ana", e:"👵", gift:["biscoito",2], lines:["Oi, querido! A Mel adora fazer amigos 💛","Já levou seu cachorro no veterinário? É importante!","A Mel dorme o dia todo na caminha dela 😴"]},
+  {dog:"pug", nome:"Pipoca", dono:"seu Léo", e:"👨", gift:["osso",1], lines:["E aí! O Pipoca só pensa em comer, igual a mim! 😄","Você já experimentou criar uma comida na loja?","O Pipoca ronca alto quando dorme! 😂"]},
+  {dog:"salsicha", nome:"Fred", dono:"dona Rosa", e:"👩‍🦰", gift:["biscoito",3], lines:["O Fred adora cavar buracos na praia! 🕳️","Sabia que cavando na praia dá para achar óculos de sol? 😎","O Fred é baixinho mas corre muito!"]},
+  {dog:"dalmata", nome:"Manchinha", dono:"dona Bia", e:"👩", gift:["osso",2], lines:["A Manchinha tem um monte de pintas, eu tentei contar! 😂","Na fazenda dá para rolar na lama… mas depois é banho!","A Manchinha adora correr atrás de borboletas 🦋"]},
+  {dog:"pinscher", nome:"Zeus", dono:"seu Tião", e:"👴", gift:["racao",4], brave:true, lines:["Cuidado, o Zeus é pequeno mas é bravo! 😅","Com amigos o Zeus vira um docinho.","No meu tempo os cachorros passeavam sem coleira!"]},
+  {dog:"pitbull", nome:"Thor", dono:"seu Jorge", e:"🧔", gift:["osso",2], brave:true, lines:["O Thor parece bravo, mas adora carinho na barriga 🐾","Passear com o Thor é treino de academia! 💪","O Thor tem medo de gato, acredita? 🐈"]}
+];
+const LOOKS = [
+  {skin:"#F2C9A5", hair:"#C9C9D1", hs:"bun", top:"#B07CC6", bot:"dress", glasses:true, house:["#F7D6E6","#B07CC6","#8A5A2B"]},
+  {skin:"#E0AC7E", hair:"#5A3B1E", hs:"short", top:"#6CB86A", bot:"pants", pc:"#3E5C8A", house:["#CFE8C8","#4FAE4A","#5A3B1E"]},
+  {skin:"#F5D0B5", hair:"#D9583B", hs:"long", top:"#FFD84A", bot:"skirt", pc:"#4FA3E0", house:["#FFF1B8","#E5574B","#4FA3E0"]},
+  {skin:"#A86B45", hair:"#2B2420", hs:"pony", top:"#4FA3E0", bot:"dress", house:["#D6ECFA","#3E5C8A","#E5574B"]},
+  {skin:"#EBC09A", hair:"#F4F4F4", hs:"tufts", top:"#E8E1D0", bot:"pants", pc:"#7A6248", cap:"#8A5A2B", cane:true, house:["#EFE3CF","#8A5A2B","#4FAE4A"]},
+  {skin:"#C68A5E", hair:"#2B2420", hs:"short", top:"#E5574B", bot:"shorts", pc:"#3E5C8A", beard:true, house:["#E9E4F5","#45454F","#F2A93B"]}
+];
+function personSVG(o){
+  const ink = "#45454F", sk = o.skin;
+  const legs = o.bot === "pants"
+    ? `<path d="M19 86 L29 86 L28 128 L19 128 Z" fill="${o.pc}"/><path d="M31 86 L41 86 L41 128 L32 128 Z" fill="${o.pc}"/>`
+    : `<rect x="21" y="${o.bot === "shorts" ? 96 : 100}" width="7" height="${o.bot === "shorts" ? 32 : 28}" fill="${sk}"/><rect x="32" y="${o.bot === "shorts" ? 96 : 100}" width="7" height="${o.bot === "shorts" ? 32 : 28}" fill="${sk}"/>`;
+  const lower = o.bot === "dress" ? `<path d="M16 50 Q30 42 44 50 L50 106 L10 106 Z" fill="${o.top}"/>`
+    : o.bot === "skirt" ? `<path d="M16 50 Q30 42 44 50 L45 86 L15 86 Z" fill="${o.top}"/><path d="M15 84 L45 84 L50 104 L10 104 Z" fill="${o.pc}"/>`
+    : o.bot === "shorts" ? `<path d="M18 86 L42 86 L43 100 L31 100 L30 92 L29 100 L17 100 Z" fill="${o.pc}"/><path d="M16 50 Q30 42 44 50 L45 88 L15 88 Z" fill="${o.top}"/>`
+    : `<path d="M16 50 Q30 42 44 50 L45 88 L15 88 Z" fill="${o.top}"/>`;
+  const hairBack = o.hs === "long" ? `<path d="M15 26 Q14 12 30 12 Q46 12 45 26 L47 58 L13 58 Z" fill="${o.hair}"/>`
+    : o.hs === "bun" ? `<circle cx="30" cy="12" r="7" fill="${o.hair}"/>`
+    : o.hs === "pony" ? `<path d="M42 22 Q56 26 52 46 Q48 36 42 32 Z" fill="${o.hair}"/>` : "";
+  const hairFront = o.hs === "tufts" ? `<path d="M16 28 Q15 22 19 21 L19 30 Z M44 28 Q45 22 41 21 L41 30 Z" fill="${o.hair}"/>`
+    : `<path d="M16 28 Q16 14 30 14 Q44 14 44 28 Q38 20 30 21 Q22 20 16 28 Z" fill="${o.hair}"/>`;
+  const acc = (o.glasses ? `<g fill="none" stroke-width="1.6"><circle cx="25" cy="30" r="4"/><circle cx="35" cy="30" r="4"/><line x1="29" y1="30" x2="31" y2="30"/></g>` : "")
+    + (o.beard ? `<path d="M19 33 Q20 46 30 47 Q40 46 41 33 Q36 38 30 38 Q24 38 19 33 Z" fill="${o.hair}"/>` : "")
+    + (o.cap ? `<path d="M16 24 Q16 12 30 12 Q44 12 44 24 Z" fill="${o.cap}"/><path d="M40 22 L54 24 L44 26 Z" fill="${o.cap}"/>` : "");
+  return `<svg viewBox="0 0 60 140" class="person"><g stroke="${ink}" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round">
+    ${hairBack}${legs}
+    <ellipse cx="24" cy="130" rx="7" ry="4" fill="#45454F"/><ellipse cx="37" cy="130" rx="7" ry="4" fill="#45454F"/>
+    ${lower}
+    <g class="arm-l"><path d="M17 52 L11 82" stroke="${o.top}" stroke-width="7"/><path d="M17 52 L11 82" fill="none" stroke-width="0"/><circle cx="11" cy="84" r="4" fill="${sk}"/></g>
+    <g class="arm-r"><path d="M43 52 L49 82" stroke="${o.top}" stroke-width="7"/><circle cx="49" cy="84" r="4" fill="${sk}"/></g>
+    ${o.cane ? `<line x1="50" y1="84" x2="54" y2="130" stroke="#8A5A2B" stroke-width="3"/>` : ""}
+    <rect x="26" y="40" width="8" height="8" fill="${sk}"/>
+    <circle cx="30" cy="30" r="14" fill="${sk}"/>
+    <circle cx="25" cy="30" r="1.8" fill="${ink}" stroke="none"/><circle cx="35" cy="30" r="1.8" fill="${ink}" stroke="none"/>
+    <circle cx="21" cy="35" r="2.4" fill="#F7A6A0" stroke="none" opacity=".7"/><circle cx="39" cy="35" r="2.4" fill="#F7A6A0" stroke="none" opacity=".7"/>
+    <path d="M26 37 Q30 40 34 37" fill="none" stroke-width="1.8"/>
+    ${hairFront}${acc}
+  </g></svg>`;
+}
+function houseSVG(c, name){
+  const [wall, roof, door] = c;
+  return `<svg viewBox="0 0 200 170"><g stroke="#45454F" stroke-width="3" stroke-linejoin="round">
+    <rect x="22" y="70" width="156" height="96" fill="${wall}"/>
+    <path d="M8 76 L100 12 L192 76 Z" fill="${roof}"/><rect x="140" y="22" width="18" height="34" fill="#B8443A"/>
+    <rect x="84" y="104" width="34" height="62" rx="3" fill="${door}"/><circle cx="110" cy="136" r="3" fill="#FFD84A"/>
+    <rect x="36" y="94" width="34" height="30" fill="#BFE3FF"/><line x1="53" y1="94" x2="53" y2="124"/><line x1="36" y1="109" x2="70" y2="109"/>
+    <rect x="132" y="94" width="34" height="30" fill="#BFE3FF"/><line x1="149" y1="94" x2="149" y2="124"/><line x1="132" y1="109" x2="166" y2="109"/>
+    <rect x="34" y="124" width="38" height="8" fill="#8A5A2B"/><rect x="130" y="124" width="38" height="8" fill="#8A5A2B"/>
+    <circle cx="100" cy="50" r="10" fill="#BFE3FF"/>
+    <rect x="70" y="80" width="62" height="14" rx="3" fill="#FFF8E6" stroke-width="2"/>
+    <text x="101" y="91" font-size="10" text-anchor="middle" font-family="Patrick Hand, Comic Sans MS, cursive" stroke="none" fill="#45454F">${name}</text></g>
+    <g font-size="12"><text x="38" y="124">🌷</text><text x="50" y="124">🌼</text><text x="134" y="124">🌼</text><text x="148" y="124">🌷</text></g></svg>`;
+}
+let visitNPC = 0;
+let npc = null;
+function clearNPC(){ scene.querySelectorAll(".npc,.npcdog").forEach(e => e.remove()); npc = null; }
+function spawnNPC(){
+  clearNPC();
+  if (view !== "vizinho") return;
+  const d = NPCS[visitNPC], look = LOOKS[visitNPC];
+  $("nhouse").innerHTML = houseSVG(look.house, "Casa " + (d.dono.startsWith("dona") ? "da " : "do ") + d.dono);
+  const f = FLOOR[view], bottom = f[0] + (f[1] - f[0]) * .45;
+  const own = document.createElement("button"); own.className = "npc"; own.style.left = "83%"; own.style.bottom = bottom + "%";
+  own.innerHTML = `${personSVG(look)}<span class="npc-n">${d.dono}<br><small class="npc-h">${hearts(d)}</small></span><span class="npc-say"></span>`;
+  own.setAttribute("aria-label", `Falar com ${d.dono}`);
+  const g = SIZE[d.dog].g * .9, wPct = 46 * g, x = 60;
+  const dg = document.createElement("div"); dg.className = "friend npcdog";
+  dg.style.width = `min(${wPct}%, ${26 * g}vh)`; dg.style.left = `calc(${x}% - min(${wPct / 2}%, ${13 * g}vh))`; dg.style.bottom = (bottom - 2) + "%";
+  dg.innerHTML = `<div class="shadow"></div><div class="fb"></div>`;
+  scene.appendChild(dg); scene.appendChild(own);
+  const actor = RIG.attach(dg, dg.querySelector(".fb"), d.dog, false);
+  actor.forceFace = -1;
+  npc = {d, own, dg, actor, x, wPct, g};
+  own.addEventListener("click", openNPC);
+  dg.addEventListener("click", openNPC);
+  if (!S.pet.sleeping) walkTo(24, 700, .3);
+  setTimeout(() => npcSay(`Oi, ${S.pet.name}! 👋`), 1500);
+}
+function npcSay(text, ms = 2600){
+  if (!npc) return;
+  npc.own.classList.remove("talk"); void npc.own.offsetWidth; npc.own.classList.add("talk");
+  setTimeout(() => npc && npc.own.classList.remove("talk"), 1600);
+  const b = npc.own.querySelector(".npc-say"); b.textContent = text; b.classList.add("show");
+  clearTimeout(npcSay.t); npcSay.t = setTimeout(() => b.classList.remove("show"), ms);
+}
+function npcMoveTo(x, ms){
+  if (!npc) return;
+  npc.dg.style.transition = `left ${ms}ms ease-in-out`;
+  npc.dg.style.left = `calc(${x}% - min(${npc.wPct / 2}%, ${13 * npc.g}vh))`;
+}
+function npcAnim(cls, ms){ if (!npc) return; const el = npc.dg; el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); setTimeout(() => el.classList.remove(cls), ms); }
+function friendPts(d){ S.pet.friends = S.pet.friends || {}; return S.pet.friends[d.nome] || 0; }
+function addFriend(d, n){
+  S.pet.friends = S.pet.friends || {}; S.pet.gifts = S.pet.gifts || {};
+  S.pet.friends[d.nome] = Math.min(10, friendPts(d) + n);
+  if (npc && npc.d === d){ const h = npc.own.querySelector(".npc-h"); if (h) h.textContent = hearts(d); }
+  if (S.pet.friends[d.nome] >= 10 && !S.pet.gifts[d.nome]){
+    S.pet.gifts[d.nome] = true;
+    const [food, q] = d.gift; S.inv[food] = (S.inv[food] || 0) + q;
+    setTimeout(() => modal(`<h3>Melhores amigos! 💛</h3><p>${d.e} ${d.dono[0].toUpperCase() + d.dono.slice(1)} ficou tão feliz com a amizade que deu um presente:</p>
+      <p style="font-size:26px">${FOODS[food].e} ${q} ${FOODS[food].nome.toLowerCase()}${q > 1 ? "s" : ""}</p><p class="hint-msg">Está na sua lista de comidas!</p>
+      <div class="row"><button class="btn go" data-k="ok">Obrigado! 🐾</button></div>`), 1800);
+  }
+  save();
+}
+function hearts(d){ const h = Math.floor(friendPts(d) / 2); return "❤️".repeat(h) + "🤍".repeat(5 - h); }
+function openNPC(){
+  if (!npc || busy > Date.now()) return;
+  const d = npc.d;
+  modal(`<div class="npc-head"><span class="npc-big">${personSVG(LOOKS[NPCS.indexOf(d)])}</span><img src="${IMG[d.dog]}" alt=""></div>
+    <h3>${d.dono[0].toUpperCase() + d.dono.slice(1)} e ${d.nome}</h3>
+    <p>Amizade: ${hearts(d)}</p>
+    <div class="play-grid">
+      <button class="btn" data-k="talk"><b>💬</b>Conversar</button>
+      <button class="btn" data-k="sniff"><b>👃</b>Cheirar</button>
+      <button class="btn" data-k="play"><b>🐕</b>Brincar juntos</button>
+      <button class="btn" data-k="treat"><b>🦴</b>Dar petisco</button>
+    </div>
+    <div class="row"><button class="btn" data-k="no">Tchau 👋</button></div>`, k => npcAct(k));
+}
+function npcAct(k){
+  if (!npc) return;
+  const d = npc.d;
+  if (k === "talk"){
+    npcSay(d.lines[Math.floor(Math.random() * d.lines.length)], 3600);
+    setTimeout(() => say(["Au au! 🐾","Que legal! 😄","Gostei dela! 💛"][Math.floor(Math.random()*3)], 1800), 3700);
+    addFriend(d, 1);
+  }
+  if (k === "sniff"){
+    if (guard()) return;
+    busy = Date.now() + 3600;
+    walkTo(npc.x - 18, 900, .45);
+    setTimeout(() => { facing = 1; placePet(); }, 950);
+    const grr = d.brave && friendPts(d) < 4;
+    setTimeout(() => {
+      anim("eat", 1200); npcAnim("eat", 1200); fx("👃", npc.x - 9, 40);
+      if (grr){ setTimeout(() => { npcAnim("jump", 900); fx("😠", npc.x, 32); say("Ui! Ele rosnou! 😳", 1800); npcSay(`Calma, ${d.nome}! Ele ainda está se acostumando 😅`, 2600); }, 900); }
+      else setTimeout(() => { fx("💕", npc.x - 9, 34); anim("boing", 500); npcSay(`Olha, ${G("eles","elas")} gostaram um do outro! 💕`, 2400); apply({alegria:10}); }, 1100);
+    }, 1100);
+    addFriend(d, grr ? 1 : 2);
+  }
+  if (k === "play"){
+    if (guard() || tired()) return;
+    busy = Date.now() + 6400;
+    say(`Vamos brincar, ${d.nome}! 🐕`, 1600);
+    npc.actor.forceFace = null;
+    walkTo(24, 1300, .2); setTimeout(() => npcMoveTo(36, 1300), 250);
+    setTimeout(() => { anim("jump", 900); npcAnim("jump", 900); fx("⭐", 30, 34); }, 1600);
+    setTimeout(() => { walkTo(62, 1300, .5); npcMoveTo(46, 1300); }, 2600);
+    setTimeout(() => { anim("jump", 900); npcAnim("jump", 900); fx("💕", 54, 34); }, 4000);
+    setTimeout(() => { npcMoveTo(npc.x, 1200); walkTo(40, 1000, .3); }, 4900);
+    setTimeout(() => { if (npc){ npc.actor.forceFace = -1; } apply({alegria:25, energia:-10}); npcSay("Que divertido! Voltem sempre! 😄", 2400); }, 6200);
+    addFriend(d, 2);
+  }
+  if (k === "treat"){
+    if (busy > Date.now()) return;
+    busy = Date.now() + 2600;
+    npcAnim("eat", 1500); fx("🦴", npc.x, 42); setTimeout(() => fx("😋", npc.x, 36), 700);
+    npcSay(`Obrigad${d.dono.startsWith("dona") ? "a" : "o"}! ${G("O","A")} ${d.nome} amou! 🦴`, 2600);
+    addFriend(d, 2);
+  }
+}
+
 const ACTIONS = {
   casa: [
     {id:"aFeed", e:"🍖", t:"Comer", fn:doFeed}, {id:"aSleep", e:"🌙", t:"Dormir", fn:doSleep}
@@ -1469,6 +1988,36 @@ const ACTIONS = {
     {e:"🍦", t:"Sorvete", fn:special({go:30, fx:["🍦","😋"], n:4, anim:"eat", d:{fome:30, alegria:30}, say:"Sorvete geladinho! 🍦", cost:3, meal:{e:"🍦", ganho:5}}), price:3},
     {e:"🐕", t:"Amigos", fn:special({ms:3400, minEnergia:12, fx:["❤️","⭐"], anim:"jump", d:{alegria:50, energia:-15}, say:"Fiz um amigo novo! 🐕", run:friendVisit})},
     {e:"🐦", t:"Pombos", fn:special({go:78, minEnergia:12, fx:["🐦","💨","🐦"], anim:"jump", d:{alegria:40, energia:-15}, say:"Corre, pombinho! 🐦"})}
+  ],
+  parque: [
+    {e:"🦆", t:"Patos", fn:chase({x:[64,80], z:.9, critter:"🦆", yb:32, flee:[1,-1.4], fx:["🦆","💨"], d:{alegria:30, energia:-10}, say:"Os patinhos voaram! 🦆"})},
+    {e:"🛝", t:"Escorrega", fn:doSlide},
+    {e:"🏊", t:"Lago", fn:doSwim},
+    {e:"🧺", t:"Piquenique", fn:special({go:30, fx:["🥪","😋"], n:4, anim:"eat", d:{fome:40, alegria:10}, say:"Sanduíche de piquenique! 🥪", cost:3}), price:3}
+  ],
+  fazenda: [
+    {e:"🐔", t:"Galinhas", fn:chase({x:[48,72], critter:"🐔", yb:14, flee:[1,-.6], again:-14, fx:["🪶","💨"], n:6, d:{alegria:35, energia:-12}, say:"Có có có! As galinhas correram! 🐔"})},
+    {e:"🟤", t:"Lama", fn:doMud},
+    {e:"🥛", t:"Leite", fn:special({go:76, z:.6, fx:["🥛","😋"], n:4, anim:"eat", d:{fome:30, alegria:10}, say:"Leitinho fresquinho da vaca! 🥛"})},
+    {e:"🌾", t:"Feno", fn:special({go:22, z:.5, rest:true, fx:["🌾","💤"], n:4, ms:2800, d:{energia:35, alegria:10}, say:"Que fofinho deitar no feno… 🌾"})}
+  ],
+  floresta: [
+    {e:"👃", t:"Trilha", fn:doTrail},
+    {e:"🦋", t:"Borboletas", fn:chase({x:[30,70], critter:"🦋", yb:40, flee:[-1,-1.2], again:12, fx:["🦋","✨"], n:6, d:{alegria:30, energia:-10}, say:"Quase peguei a borboleta! 🦋"})},
+    {e:"💧", t:"Riacho", fn:special({go:50, z:.95, fx:["💧","💦"], n:6, anim:"eat", d:{alegria:15, energia:10, limpeza:5}, say:"Água geladinha do riacho! 💧"})},
+    {e:"🏕️", t:"Fogueira", fn:doCamp}
+  ],
+  vizinho: [
+    {e:"💬", t:"Conversar", fn:() => npc && npcAct("talk")},
+    {e:"👃", t:"Cheirar", fn:() => npc && npcAct("sniff")},
+    {e:"🐕", t:"Brincar", fn:() => npc && npcAct("play")},
+    {e:"🦴", t:"Petisco", fn:() => npc && npcAct("treat")}
+  ],
+  vet: [
+    {e:"🩺", t:"Consulta", fn:doCheckup},
+    {e:"💉", t:"Vacina", fn:doVaccine},
+    {e:"⚖️", t:"Pesar", fn:doWeigh},
+    {e:"🦴", t:"Petisco", fn:special({go:40, fx:["🦴","😋"], n:4, anim:"eat", d:{fome:15, alegria:15}, say:"A doutora me deu um petisco! 🦴"})}
   ],
   praia: [
     {e:"🏖️", t:"Deitar", fn:doBeachRest},
@@ -1506,8 +2055,10 @@ document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () =>
   if (v === "mapa" && S.pet.energia < 10){ say(G("Estou cansado demais para passear…","Estou cansada demais para passear…")); return; }
   setView(v);
 }));
-const GREET = {petshop:"Chegamos no pet shop! ✂️", praca:"Que cheiro de comida! 🌭", praia:"Praia! Areia e mar! 🏖️"};
+const GREET = {petshop:"Chegamos no pet shop! ✂️", praca:"Que cheiro de comida! 🌭", praia:"Praia! Areia e mar! 🏖️",
+  parque:"Parque! Olha os patinhos! 🦆", fazenda:"Fazenda! Muuu! 🐄", floresta:"Quanto cheiro na floresta! 🌲", vet:"Hora do check-up! 🩺"};
 function setView(v){
+  clearNPC();
   if (PLACES_IN.includes(view) && v !== view){ S.pet.poops = S.pet.poops.filter(q => q.loc !== view); S.pet.pees = S.pet.pees.filter(q => q.loc !== view); }
   scene.classList.remove("inbath", "inbed", "inhouse");
   view = v;
@@ -1522,25 +2073,33 @@ function setView(v){
   scene.querySelectorAll(".friend,.fx,.drop,.ball").forEach(e => e.remove());
   renderActions(); renderPoops(); render();
   if (GREET[v]) say(GREET[v], 2600);
+  spawnNPC();
 }
 
 /* ---------- mapa ---------- */
 const MAP = [
   "wwwwwwww",
   "sssBssss",
-  "trrrrrrt",
-  "hrgtgrgh",
-  "grgggrgg",
-  "hrhggrgt",
+  "Trrrrrrt",
+  "1rgtgrg2",
+  "grgggrPg",
+  "3r4ggrgF",
   "grrrrrrg",
-  "tgSrhgrQ",
-  "hggrggrg",
-  "gtgCrrrh"
+  "tgSr5grQ",
+  "Vggrggrg",
+  "gtgCrrr6"
 ];
 const PLACES = {
   C:{nome:"Casa",e:"🏠",v:"casa",preco:0}, B:{nome:"Praia",e:"🏖️",v:"praia",preco:5},
-  S:{nome:"Pet shop",e:"✂️",v:"petshop",preco:4}, Q:{nome:"Praça",e:"⛲",v:"praca",preco:3}
+  S:{nome:"Pet shop",e:"✂️",v:"petshop",preco:4}, Q:{nome:"Praça",e:"⛲",v:"praca",preco:3},
+  P:{nome:"Parque",e:"🛝",v:"parque",preco:3,ir:"o parque"}, F:{nome:"Fazenda",e:"🐄",v:"fazenda",preco:6,ir:"a fazenda"},
+  T:{nome:"Floresta",e:"🌲",v:"floresta",preco:5,ir:"a floresta"}, V:{nome:"Veterinário",e:"🏥",v:"vet",preco:4,ir:"o veterinário"}
 };
+// casas dos vizinhos: é de graça visitar, e só lá dá para encontrar os donos
+["1","2","3","4","5","6"].forEach((k, i) => {
+  const d = NPCS[i], da = d.dono.startsWith("dona") ? "da" : "do";
+  PLACES[k] = {nome:d.dono, e:"🏡", v:"vizinho", preco:0, npc:i, ir:`a casa ${da} ${d.dono}`};
+});
 const DECO = {t:"🌳", h:"🏡", w:"🌊"};
 const W = 8, H = 10;
 const walkable = (c, r) => r >= 0 && r < H && c >= 0 && c < W && !"wth".includes(MAP[r][c]);
@@ -1550,7 +2109,8 @@ for (let r = 0; r < H; r++) for (let c = 0; c < W; c++){
   const ch = MAP[r][c], pl = PLACES[ch];
   const b = document.createElement(pl ? "button" : "div");
   b.className = "tile " + (pl ? "place" : ch);
-  b.innerHTML = pl ? `${pl.e}<span class="lbl">${pl.nome}${pl.preco ? " R$" + pl.preco : ""}</span>` : (DECO[ch] || "");
+  const side = c === 0 ? " l" : c === W - 1 ? " r" : "";
+  b.innerHTML = pl ? `${pl.e}<span class="lbl${side}">${pl.nome}${pl.preco ? " R$" + pl.preco : ""}</span>` : (DECO[ch] || "");
   if (pl){ b.setAttribute("aria-label", "Ir para " + pl.nome); b.addEventListener("click", () => goTo(c, r)); }
   else b.addEventListener("click", () => mapMsg("Toque num lugar amarelo"));
   mapEl.appendChild(b);
@@ -1592,9 +2152,9 @@ function goTo(c, r){
   if (pl.preco && !pay(pl.preco)){ mapMsg(`Precisa de R$ ${pl.preco}. Passeie cachorros! 🦮`, 3000); return; }
   const route = findRoute(mapPos, [c, r]);
   route.forEach(([cc,rr]) => tileAt(cc,rr).classList.add("route"));
-  traveling = true; mapMsg(`Indo para ${pl.v === "casa" ? "casa" : pl.v === "petshop" ? "o pet shop" : "a " + pl.nome.toLowerCase()}…`);
+  traveling = true; mapMsg(`Indo para ${pl.ir || (pl.v === "casa" ? "casa" : pl.v === "petshop" ? "o pet shop" : "a " + pl.nome.toLowerCase())}…`);
   const tick = () => {
-    if (!route.length){ traveling = false; setTimeout(() => setView(pl.v), 250); return; }
+    if (!route.length){ traveling = false; if (pl.npc != null) visitNPC = pl.npc; setTimeout(() => setView(pl.v), 250); return; }
     const next = route.shift();
     const face = next[0] < mapPos[0] ? -1 : next[0] > mapPos[0] ? 1 : null;
     mapPos = next; placeToken(face); tileAt(...next).classList.remove("route");
@@ -1622,7 +2182,7 @@ setInterval(() => {
   if (view !== "mapa"){
     if (p.sleeping){ if (sec % 2 === 0) fx("Z", petX + 8, 30 + Math.random()*8, "zzz"); }
     else {
-      const wr = WANDER[view] || [18, 82];
+      const wr = npc ? [16, 52] : (WANDER[view] || [18, 82]);
       if (busy < now && (p.poo >= 100 || p.pee >= 100)) accident(p.poo >= 100 ? "poo" : "pee");
       else if (busy < now && sec % 5 === 0 && Math.random() < .7) walkTo(rnd(wr[0], wr[1]));
       else if (busy < now && sec % 7 === 3 && pet.classList.contains("happy") && Math.random() < .5) anim("jump", 900);
@@ -1768,6 +2328,7 @@ const RIG = (() => {
     s.sad = damp(s.sad, cls.contains("sad") ? 1 : 0, 2, dt);
     s.happy = damp(s.happy, (cls.contains("happy") || cls.contains("excited") || !a.isPet) ? 1 : 0, 2, dt);
     s.dig = damp(s.dig || 0, cls.contains("digging") ? 1 : 0, 10, dt);
+    s.paw = damp(s.paw || 0, cls.contains("paw") ? 1 : 0, 8, dt);
     [["jump","jump"],["stop","jump"],["shake","shake"],["boing","boing"]].forEach(([c, e]) => {
       const has = cls.contains(c); if (has && !a.was[c]) s[e] = 0; a.was[c] = has; });
     const adv = (k, dur) => { if (s[k] >= 0){ s[k] += dt / dur; if (s[k] >= 1) s[k] = -1; } };
@@ -1812,6 +2373,7 @@ const RIG = (() => {
       ang = ang * (1 - s.lie) + (L.front ? 72 : -62) * s.lie;     // deitado: da frente esticada, de trás dobrada
       ang += (L.front ? 0 : 26) * s.poop;                          // agachar para o cocô
       let legLift = 0;
+      if (L.front && L === r.legs.find(q => q.front) && s.paw > .01){ ang += 78 * s.paw; legLift += 10 * s.paw; }
       if (L.front && s.dig > .01){ const k = L === r.legs.find(q => q.front) ? 0 : Math.PI;   // patas da frente cavando
         ang += (Math.sin(s.t * 26 + k) * 38 + 18) * s.dig; legLift += Math.max(0, Math.cos(s.t * 26 + k)) * 6 * s.dig; }
       if (male && L === r.legs.find(q => !q.front)){ ang -= 62 * s.pee; legLift = 8 * s.pee; }   // levanta a pata para o xixi
